@@ -1,6 +1,7 @@
 const getProductById = async (productId) => {
    
     const url= `https://fakestoreapi.com/products/${productId}`
+    console.log( url)
     try {
       const response = await fetch(url);
       if (!response.ok) throw new Error(response.status + " " + response.statusText);

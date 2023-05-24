@@ -6,19 +6,25 @@ import getDataById from '../helpers/getDataById';
 
 const ProductDetailed = () => {
   
-  const { id } = useParams();
+  const  {idProducto} = useParams();
+  console.log(idProducto);
+
   const [products, setProducts] = useState({});
   useEffect(() => {
     getData();
-  }, [id]);
+  }, [idProducto]);
+
+ 
   
  const getData = () => {
-  getDataById(id)
+  getDataById(idProducto)
   .then((product) => {
     setProducts(product);
   })
   .catch((error) => console.error(error));
  };
+
+ console.log(products)
   
   return (
     <div>
