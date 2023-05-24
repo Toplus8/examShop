@@ -1,7 +1,12 @@
 body{
     display: flex;
-    justify-content: center;
+    justify-content:center;
+    align-items: center;
+    
 }
 .totalContainer{
-    width: 90%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 30%;
+    
 }

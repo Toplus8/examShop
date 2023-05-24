@@ -14,7 +14,8 @@ const ProductCard = ({ product, setProducts, productInChart, setProductInChart})
   return (
     <div className='productCard'>
         <div> { product.title } </div>
-     <Link to={`/productos/${product.id}`}> <img src={`${product.image}`} ></img> </Link>
+        <div className='imgDiv'><Link to={`/productos/${product.id}`}> <img src={`${product.image}`} ></img> </Link></div>
+     
         <div> Precio: { product.price } €</div>
         <button onClick={()=>buyProduct(product)}>Comprar</button>
     </div>
