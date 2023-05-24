@@ -1,0 +1,12 @@
+.productCard{
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+width: 20% ;
+height:fit-content;
+margin-bottom: 20px;
+}
+.productCard img{
+    width: 30%;
+    
+}
