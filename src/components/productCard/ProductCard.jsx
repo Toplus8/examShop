@@ -4,34 +4,38 @@ import { Link } from 'react-router-dom'
 
 const ProductCard = ({ product, setProducts, productInChart, setProductInChart}) => {
 
-    const buyProduct =(item)=>{
-       /*ToDo:Crear un if item exist en productInChart, filter con ! y setProductInCHart con el resultado */
-      //console.log(item)
-      
+    const buyProduct =(item, id)=>{
+            
       if (!productInChart.includes(item)){
         setProductInChart(productInChart.concat(item)); 
-        document.getElementById('buy').style.display = "none";
-        document.getElementById('delete').style.display = "block";
+        const buy = document.getElementsByClassName('buy');
+        buy[id-1].style.display = "none";
+        const remove = document.getElementsByClassName('delete');
+        remove[id-1].style.display = "block";
+        const colour = document.getElementsByClassName('buyDeleteButton');
+        colour[id-1].style.backgroundColor = "red";
         
       }else{
         const updatedChart = productInChart.filter(product => product != item)
         setProductInChart(updatedChart);
-        document.getElementById('buy').style.display = "block";
-        document.getElementById('delete').style.display = "none";
-        
+        const buy = document.getElementsByClassName('buy');
+        buy[id-1].style.display = "block";
+        const remove = document.getElementsByClassName('delete');
+        remove[id-1].style.display = "none";
+        const colour = document.getElementsByClassName('buyDeleteButton')
+        colour[id-1].style.backgroundColor = "green";
       }
       //ejemplo filter: const resultado = animales.filter(animal => animal != 'oso');
       //console.log(productInChart)
     };
 //console.log(product.id)
   return (
-    <div className='productCard'>
+    <div className='productCard' key={product.id}>
         <div> { product.title } </div>
         <div className='imgDiv'><Link to={`/productos/${product.id}`}> <img src={`${product.image}`} ></img> </Link></div>
-     
         <div> Precio: { product.price } €</div>
-        <button onClick={()=>buyProduct(product)}>
-          <p id='delete' style={{display:"none"}} >Eliminar</p><p id='buy'>Comprar</p>
+        <button  className= "buyDeleteButton" key={product.id} style={{backgroundColor:"green"}} onClick={()=>buyProduct(product, product.id)}>
+          <p className='delete' style={{display:"none"}} >Eliminar</p><p className='buy'>Comprar</p>
           </button>
     </div>
   )

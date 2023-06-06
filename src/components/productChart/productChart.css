@@ -6,8 +6,13 @@
     top: 10px;
     text-align: center;
     padding: 10px;
+    
 }
 .total{
     border-top: 2px solid black;
     border-bottom: 2px solid black;
+    margin-bottom: 12px;
+}
+#checkoutFirebase{
+    margin-bottom: 10px;
 }
